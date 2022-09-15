@@ -9,7 +9,9 @@ from src.globals.globals import g_logger
 class MySQLPool(object):
     """
     MySQL连接池,帮助管理连接的建立和关闭
-    note:因为数据库错误通常无法自行修复,所以内部不捕获任何异常,caller需要捕获可能的异常并输出日志. 但不能影响其继续运行,要只输出错误
+    note: 异常处理规则如下
+    构造函数发生错误时,抛出异常,使程序停止运行
+    具体数据库访问发生错误时,内部处理异常并输出日志,使程序继续运行
     """
     def __init__(self, host='127.0.0.1', port='3306', user='root', password='123456', database='test',
                  pool_name='mypool', pool_size=5):
