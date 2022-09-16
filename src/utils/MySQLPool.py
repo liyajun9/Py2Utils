@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 # coding=utf-8
 import traceback
-
 import mysql
-from src.globals.globals import g_logger
+from mysql import connector
+from mysql.connector import pooling
+from globals import g_logger
 
 
 class MySQLPool(object):

@@ -2,7 +2,7 @@
 # coding=utf-8
 
 
-class ProjectError(Exception):
+class ProjectBaseError(Exception):
     """
     自定义错误的基类
     """
