@@ -97,8 +97,9 @@ class MySQLPool(object):
         conn = self.pool.get_connection()
         cursor = conn.cursor()
         try:
-            cursor.execute(sql, args)
-            g_logger.debug('last statement: %s' % cursor.statement)
+            cursor.executemany(sql, args)
+            for arg in args:
+                g_logger.debug('%s args:%s' % (sql, str(arg)))
 
             if commit:
                 conn.commit()
