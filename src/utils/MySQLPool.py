@@ -99,7 +99,7 @@ class MySQLPool(object):
         try:
             cursor.executemany(sql, args)
             for arg in args:
-                g_logger.debug('%s args:%s' % (sql, str(arg)))
+                g_logger.debug(sql, arg)
 
             if commit:
                 conn.commit()
